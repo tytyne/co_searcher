@@ -1,7 +1,7 @@
-const Joi=require('joi')
+
 const mongoose =require('mongoose')
 
-const User=mongoose.model('User',new mongoose.Schema({
+var mySchema = mongoose.Schema({
 
     name:{
 
@@ -21,19 +21,18 @@ const User=mongoose.model('User',new mongoose.Schema({
 
     }
 
-})),
+});
 
-function validateUser(user){
+mySchema.methods.schemaValidate = function(obj){
+    var Joi=require('joi')
 
     const schema={
-        name=Joi.string().min(3).max(50).required(),
-        email=Joi.string().min(3).max(50).required().email(),
-        password=Joi.string().min(5).max(50).required()
-
+        name:Joi.string().min(3).max(50).required(),
+        email:Joi.string().min(3).max(50).required().email(),
+        password:Joi.string().min(5).max(50).required()
     };
 
-    return Joi.validate(user,schema);
+    return Joi.validate(obj,schema);
 }
 
-exports.User=User;
-exports.validate=validateUser;
+module.exports=mongoose.model('User',mySchema)
