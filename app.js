@@ -8,12 +8,28 @@ const auth = require('./routes/auth')
 const config=require('config')
 const serveStatic=require('serve-static')
 
-mongoose.connect("mongodb://localhost:27017/trial", {
-  useNewUrlParser: "true",
-})
+
+
+
+// mongoose.connect("mongodb://localhost:27017/trial", {
+//   useNewUrlParser: "true",
+// })
+
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/trial";
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  family: 4 
+};
+mongoose.connect(MONGODB_URI,options)
+
+
+
 mongoose.connection.on("error", err => {
   console.log("err", err)
 })
+
 mongoose.connection.on("connected", (err, res) => {
   console.log("mongoose is connected")
 })

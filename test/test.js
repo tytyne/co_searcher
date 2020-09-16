@@ -2,7 +2,7 @@ let assert=require("chai").assert;
 let expect=require("chai").expect;
 let chai=require("chai")
 let chaiHttp=require("chai-http")
-let server=require("../index")
+let server=require("../app.js")
 let should = require("chai").should()
 chai.use(chaiHttp)
 
