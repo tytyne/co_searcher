@@ -7,6 +7,7 @@ const users=require('./routes/users')
 const auth = require('./routes/auth')
 const config=require('config')
 const serveStatic=require('serve-static')
+require('./startup/prod')(app)
 
 
 
