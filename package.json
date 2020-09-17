@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "set NODE_ENV = development&& node app.js",
-    "start-prod": "set NODE_ENV = production node app.j",
+    "start-prod": "set NODE_ENV = production&& node app.j",
     "test": "mocha"
   },
   "author": "",
