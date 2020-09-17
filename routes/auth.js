@@ -6,7 +6,7 @@ const jwt=require('jsonwebtoken')
 const config=require('config')
 const bcrypt=require('bcrypt');
 const _ = require('lodash');
-const {User,validate}=require('../models/User');
+const {User}=require('../models/User');
 
 
 router.post('/',async(req, res) => {  
@@ -27,5 +27,16 @@ router.post('/',async(req, res) => {
         return res.json({token:token})
 
 });
+
+    function validate(req){
+        const schema={
+            email:Joi.string().min(5).max(255).required().email(),
+            password:Joi.string().min(5).max(255).required()
+
+
+        }
+
+
+    }
 
 module.exports = router;
