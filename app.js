@@ -16,7 +16,7 @@ require('./startup/prod')(app)
 //   useNewUrlParser: "true",
 // })
 
-var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/trial";
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost:27017/searcher";
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
