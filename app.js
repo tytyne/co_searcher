@@ -61,8 +61,14 @@ app.get("/login",(req,res)=>{
 app.get("/register",(req,res)=>{
   return res.render('registration.html')
 })
-
-
+//add new company
+app.get("/add",requireAuth,(req,res)=>{
+  res.render("addYours.html")
+})
+//all companies
+app.get("companies",(req,res)=>{
+  res.render("companies.html")
+})
 
 if(!config.get('PrivateKey')){
     console.error('Fatal error:PrivateKey is not defined.');
